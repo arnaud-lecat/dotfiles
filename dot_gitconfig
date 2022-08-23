@@ -1,3 +1,6 @@
 [user]
 	email = bonjour@arnaudlecat.com
 	name = Arnaud Lecat
+
+[init]
+	defaultBranch = main
