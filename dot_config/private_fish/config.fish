@@ -4,6 +4,7 @@ end
 set -gx CUDA_HOME /opt/cuda
 set -gx LV_BRANCH release-1.4/neovim-0.9
 set -gx LD_LIBRARY_PATH $CUDA_HOME/lib64 $LD_LIBRARY_PATH
+set -gx PIP_REQUIRE_VIRTUALENV true
 set -gx PATH ~/.npm-global/bin $PATH
 
 alias lvim='/home/alecat/.local/bin/lvim'
