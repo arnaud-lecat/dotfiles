@@ -1,3 +1,5 @@
+fastfetch
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -12,7 +14,7 @@ alias vim=lvim
 alias vi=lvim
 
 # pnpm
-set -gx PNPM_HOME "/home/alecat/.local/share/pnpm"
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
@@ -21,3 +23,5 @@ end
 if not contains "$HOME/.local/bin" $PATH
 	set -gx PATH "$HOME/.local/bin" $PATH
 end
+
+starship init fish | source
