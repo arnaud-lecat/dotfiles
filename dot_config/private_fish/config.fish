@@ -9,9 +9,7 @@ set -gx LD_LIBRARY_PATH $CUDA_HOME/lib64 $LD_LIBRARY_PATH
 set -gx PIP_REQUIRE_VIRTUALENV true
 set -gx PATH ~/.npm-global/bin $PATH
 
-alias lvim='/home/alecat/.local/bin/lvim'
-alias vim=lvim
-alias vi=lvim
+alias vi=nvim
 
 # pnpm
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
