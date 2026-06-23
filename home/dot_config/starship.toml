@@ -5,15 +5,15 @@
 # Palettes must be defined _after_ this line
 palette = "catppuccin_macchiato"
 
+# Inserts a blank line between shell prompts
+add_newline = true
+
 # Starship modules
 [character]
 # Note the use of Catppuccin color 'peach'
 success_symbol = "[[󰄛](green) ❯](peach)"
 error_symbol = "[[󰄛](red) ❯](peach)"
 vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
-
-# Inserts a blank line between shell prompts
-add_newline = true
 
 [git_branch]
 style = "bold mauve"
