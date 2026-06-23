@@ -3,6 +3,7 @@ fastfetch
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+set -gx EDITOR nvim
 set -gx CUDA_HOME /opt/cuda
 set -gx LV_BRANCH release-1.4/neovim-0.9
 set -gx LD_LIBRARY_PATH $CUDA_HOME/lib64 $LD_LIBRARY_PATH

@@ -1,6 +1,10 @@
 [user]
-	email = bonjour@arnaudlecat.com
-	name = Arnaud Lecat
+  name = {{ .name | quote }}
+  email = {{ .email | quote }}
+
+[core]
+  autocrlf = false
+  symlinks = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main
