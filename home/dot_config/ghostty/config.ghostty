@@ -42,6 +42,6 @@ window-padding-y = 5
 
 copy-on-select = clipboard
 
-theme = catpuccin-{{data.catppuccin-flavor}}.conf
+theme = catpuccin-{{ .catppuccin-flavor | quote }}.conf
 font-size = 13.5
 font-family = Cartograph CF
