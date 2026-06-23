@@ -1,0 +1,25 @@
+return {
+	-- Ajoute le plugin
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		opts = {
+			flavour = "macchiato", -- latte, frappe, macchiato, mocha
+			integrations = {
+				cmp = true,
+				gitsigns = true,
+				treesitter = true,
+				telescope = true,
+				which_key = true,
+				-- etc.
+			},
+		},
+	},
+	-- Dit à LazyVim de l'utiliser
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "catppuccin",
+		},
+	},
+}
