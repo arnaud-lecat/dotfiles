@@ -16,6 +16,7 @@
 > Perso : Arch/Manjaro. Boulot : Ubuntu. Shell : Fish.
 
 - **Python** : `uv` exclusivement (jamais `pip`/`venv`/`poetry`). Exécuter avec `uv run`, ajouter avec `uv add`.
+- **JS/TS** : `pnpm` exclusivement (jamais `npm`/`yarn`) ; lint + format avec `biome`.
 - **Tâches répétées** : `just` (Justfile), pas de Makefile.
 - **Git** : `lazygit` pour l'interactif ; messages de commit en Conventional Commits.
 - **Shell** : Fish — pas de bashismes dans les snippets ; si du bash est nécessaire, le préfixer `bash -c '…'`.
