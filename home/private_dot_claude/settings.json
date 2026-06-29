@@ -1,0 +1,53 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(just *)",
+      "Bash(uv run *)",
+      "Bash(uv add *)",
+      "Bash(cargo build)",
+      "Bash(cargo test)",
+      "Bash(cargo clippy *)",
+      "Bash(npm run *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/secrets/**)"
+    ]
+  }
+  "enabledPlugins": {
+    "next-task@agentsys": false,
+    "ship@agentsys": true,
+    "can-i-help@agentsys": true,
+    "php-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "enhance@agentsys": true
+  },
+  "extraKnownMarketplaces": {
+    "agentsys": {
+      "source": {
+        "source": "github",
+        "repo": "agent-sh/agentsys"
+      }
+    }
+  },
+  "tui": "fullscreen"
+}
