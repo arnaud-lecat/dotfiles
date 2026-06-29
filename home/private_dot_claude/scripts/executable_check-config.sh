@@ -105,9 +105,42 @@ if [ -d "$CLAUDE_DIR/rules" ]; then
 $(printf '%s' "$dup" | sed 's/^/      /')"
 fi
 
-# 7. Lint optionnels (si installés)
+# 7. Skills : frontmatter (name + description) + scripts exécutables
+if [ -d "$CLAUDE_DIR/skills" ]; then
+  for sk in "$CLAUDE_DIR"/skills/*/; do
+    [ -d "$sk" ] || continue
+    name=$(basename "$sk")
+    md="$sk/SKILL.md"
+    if [ ! -f "$md" ]; then
+      err "skills/$name : SKILL.md manquant."
+      continue
+    fi
+    # frontmatter présent et fermé ?
+    if ! head -1 "$md" | grep -q '^---$'; then
+      err "skills/$name : SKILL.md sans frontmatter."
+    elif ! awk 'NR>1 && /^---$/{f=1; exit} END{exit !f}' "$md"; then
+      err "skills/$name : frontmatter jamais fermé (--- manquant)."
+    else
+      miss=""
+      grep -q '^name:' "$md" || miss="name"
+      grep -q '^description:' "$md" || miss="${miss:+$miss, }description"
+      if [ -n "$miss" ]; then
+        err "skills/$name : champ(s) requis manquant(s) dans le frontmatter : $miss."
+      else
+        ok "skills/$name : SKILL.md (name + description présents)"
+      fi
+    fi
+    # scripts bundlés exécutables ?
+    for s in "$sk"scripts/*.sh; do
+      [ -e "$s" ] || continue
+      [ -x "$s" ] || err "skills/$name/scripts/$(basename "$s") n'est pas exécutable (chmod +x)."
+    done
+  done
+fi
+
+# 8. Lint optionnels (si installés)
 command -v shellcheck >/dev/null 2>&1 && {
-  shellcheck "$CLAUDE_DIR"/hooks/*.sh "$CLAUDE_DIR"/scripts/*.sh >/dev/null 2>&1 \
+  shellcheck "$CLAUDE_DIR"/hooks/*.sh "$CLAUDE_DIR"/scripts/*.sh "$CLAUDE_DIR"/skills/*/scripts/*.sh >/dev/null 2>&1 \
     && ok "shellcheck : scripts propres" \
     || warn "shellcheck signale des problèmes (lancer : shellcheck $CLAUDE_DIR/hooks/*.sh)."
 }
