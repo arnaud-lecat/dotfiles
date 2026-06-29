@@ -33,7 +33,7 @@
       "Read(./**/*.key)",
       "Read(./**/secrets/**)"
     ]
-  }
+  },
   "enabledPlugins": {
     "next-task@agentsys": false,
     "ship@agentsys": true,
