@@ -28,4 +28,4 @@ lint-sh:
 
 # Rend tous les scripts exécutables (après un git clone / chezmoi apply)
 fix-perms:
-    @chmod +x hooks/*.sh scripts/*.sh && echo "scripts rendus exécutables"
+    @chmod +x hooks/*.sh scripts/*.sh skills/*/scripts/*.sh 2>/dev/null; echo "scripts rendus exécutables"
