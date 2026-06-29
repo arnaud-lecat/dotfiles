@@ -5,12 +5,12 @@ set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx PIP_REQUIRE_VIRTUALENV true # garde-fou pip (belt-and-suspenders, même si uv reste l'outil)
 
-set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+set -gx PNPM_HOME $HOME/.local/share/pnpm
 
 # ── PATH ─────────────────────────────────────────────────────
 # fish_add_path : idempotent, dédoublonne, gère l'ordre. Remplace
 # avantageusement les `set -gx PATH ...` + gardes `contains/string match`.
-fish_add_path -g ~/.npm-global/bin $PNPM_HOME ~/.local/bin
+fish_add_path -g ~/.npm-global/bin $PNPM_HOME/bin ~/.local/bin
 
 # ── CUDA / PyTorch ───────────────────────────────────────────
 # Gardé par `test -d` → la config reste portable sur les machines sans CUDA
