@@ -1,0 +1,31 @@
+# Justfile de la config ~/.claude
+# Usage : depuis ~/.claude => `just check`
+# Ou globalement depuis n'importe où => `just -g check` (si copié dans ~/.justfile)
+
+# Liste les recettes par défaut
+default:
+    @just --list
+
+# Audit complet : santé, budget de lignes, validité settings, hooks, cohérence
+check:
+    @bash {{justfile_directory()}}/scripts/check-config.sh
+
+# Comptage rapide des lignes de chaque fichier d'instruction
+lines:
+    @wc -l CLAUDE.md rules/*.md 2>/dev/null | sort -n
+
+# Lint markdown (si markdownlint-cli2 est installé)
+lint-md:
+    @command -v markdownlint-cli2 >/dev/null 2>&1 \
+        && markdownlint-cli2 "CLAUDE.md" "rules/*.md" \
+        || echo "markdownlint-cli2 absent (npm i -g markdownlint-cli2)"
+
+# Lint des scripts shell (si shellcheck est installé)
+lint-sh:
+    @command -v shellcheck >/dev/null 2>&1 \
+        && shellcheck hooks/*.sh scripts/*.sh \
+        || echo "shellcheck absent"
+
+# Rend tous les scripts exécutables (après un git clone / chezmoi apply)
+fix-perms:
+    @chmod +x hooks/*.sh scripts/*.sh && echo "scripts rendus exécutables"
