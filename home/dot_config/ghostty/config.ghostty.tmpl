@@ -1,10 +1,14 @@
 
+theme = catppuccin-{{ .catppuccin_flavor }}.conf
 custom-shader = ~/.ghostty-shaders/cursor_blaze.glsl
 
-
+window-inherit-working-directory = false
 window-padding-x = 5
 window-padding-y = 5
+
+working-directory = home
 copy-on-select = clipboard
-theme = catppuccin-{{ .catppuccin_flavor }}.conf
+
+font-feature = -calt, -liga, -dlig
 font-size = 13.5
 font-family = Cartograph CF
