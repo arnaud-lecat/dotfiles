@@ -21,7 +21,7 @@
 - **Shell** : Fish — pas de bashismes dans les snippets ; si du bash est nécessaire, le préfixer `bash -c '…'`.
 - **Dotfiles** : gérés avec `chezmoi` — proposer `chezmoi edit <fichier>` plutôt que d'éditer la cible directement.
 - **Éditeur** : Neovim (LazyVim).
-- Commandes shell : proxifiées par `rtk` (Rust Token Killer) via hook, de façon transparente — taper les commandes normalement, ne pas préfixer à la main. rtk proxy <cmd> réservé au debug. Analytics : rtk gain / rtk discover. Référence : ~/.claude/RTK.md (ouvrir au besoin, ne pas charger d'office).
+- Commandes shell : proxifiées par `rtk` (Rust Token Killer) via hook, de façon transparente — taper les commandes normalement, ne pas préfixer à la main. `rtk proxy <cmd>` réservé au debug. Analytics : `rtk gain` / `rtk discover`. Référence : ~/.claude/RTK.md (ouvrir au besoin, ne pas charger d'office).
 
 ## Code (transverse, tous langages)
 
