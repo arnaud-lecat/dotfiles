@@ -30,6 +30,7 @@
 - Solution la plus simple qui marche ; pas de sur-ingénierie ni d'abstraction prématurée.
 - Ne pas ajouter de dépendance sans raison — vérifier ce qui est déjà présent dans le projet.
 - Commentaires seulement quand ils expliquent le « pourquoi », jamais le « quoi ».
+- Commentaires et code en anglais, sauf si le projet est francophone
 
 ## Comportement
 
