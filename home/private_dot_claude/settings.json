@@ -16,6 +16,7 @@
     "allow": [
       "Bash(rtk *)",
       "Bash(just *)",
+      "Bash(grep *)",
       "Bash(uv run *)",
       "Bash(uv add *)",
       "Bash(cargo build)",
