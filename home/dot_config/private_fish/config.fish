@@ -13,7 +13,11 @@ end
 # ── PATH ─────────────────────────────────────────────────────
 # fish_add_path : idempotent, dédoublonne, gère l'ordre. Remplace
 # avantageusement les `set -gx PATH ...` + gardes `contains/string match`.
+<<<<<<< Updated upstream
 fish_add_path -g ~/.npm-global/bin ~/.local/bin
+=======
+fish_add_path -g ~/.npm-global/bin $PNPM_HOME ~/.local/bin
+>>>>>>> Stashed changes
 
 # ── CUDA / PyTorch ───────────────────────────────────────────
 # Gardé par `test -d` → la config reste portable sur les machines sans CUDA
