@@ -13,11 +13,7 @@ end
 # ── PATH ─────────────────────────────────────────────────────
 # fish_add_path : idempotent, dédoublonne, gère l'ordre. Remplace
 # avantageusement les `set -gx PATH ...` + gardes `contains/string match`.
-<<<<<<< Updated upstream
-fish_add_path -g ~/.npm-global/bin ~/.local/bin
-=======
 fish_add_path -g ~/.npm-global/bin $PNPM_HOME ~/.local/bin
->>>>>>> Stashed changes
 
 # ── CUDA / PyTorch ───────────────────────────────────────────
 # Gardé par `test -d` → la config reste portable sur les machines sans CUDA
@@ -29,13 +25,9 @@ if test -d /opt/cuda
     set -gx LD_LIBRARY_PATH $CUDA_HOME/lib64 $LD_LIBRARY_PATH
 end
 
-# ── Neovim ───────────────────────────────────────────────────
-# ⚠ LV_BRANCH est la variable d'install de *LunarVim* et pointe vers Neovim 0.9.
-#   Si on est passé à LazyVim, c'est du mort → à supprimer. Décommenter
-#   uniquement si LunarVim est encore réellement utilisé.
 # set -gx LV_BRANCH release-1.4/neovim-0.9
 
-alias vi=nvim # (cohérent de le déplacer en `abbr` dans conf.d/abbr.fish)
+# alias vi=nvim # (cohérent de le déplacer en `abbr` dans conf.d/abbr.fish)
 
 # ── Interactif uniquement ────────────────────────────────────
 if status is-interactive

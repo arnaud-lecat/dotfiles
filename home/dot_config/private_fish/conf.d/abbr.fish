@@ -152,6 +152,12 @@ abbr -a --position anywhere NUL '&>/dev/null'
 abbr -a --position anywhere NE '2>/dev/null'
 
 # ─────────────────────────────────────────────────────────────
+#  VI
+# ─────────────────────────────────────────────────────────────
+
+abbr -a vi nvim
+
+# ─────────────────────────────────────────────────────────────
 #  Abbr dynamique (--function) : !! et !$ façon bash, en natif fish
 #  `gco BANG`  →  remplace par la dernière branche/argument utile
 # ─────────────────────────────────────────────────────────────
