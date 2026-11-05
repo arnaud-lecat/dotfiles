@@ -1,4 +1,29 @@
 {
+  "env": {
+    "MCP_TIMEOUT": "120000"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rtk *)",
+      "Bash(just *)",
+      "Bash(grep *)",
+      "Bash(uv run *)",
+      "Bash(uv add *)",
+      "Bash(cargo build)",
+      "Bash(cargo test)",
+      "Bash(cargo clippy *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/secrets/**)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -12,36 +37,16 @@
       }
     ]
   },
-  "permissions": {
-    "allow": [
-      "Bash(rtk *)",
-      "Bash(just *)",
-      "Bash(grep *)",
-      "Bash(uv run *)",
-      "Bash(uv add *)",
-      "Bash(cargo build)",
-      "Bash(cargo test)",
-      "Bash(cargo clippy *)",
-      "Bash(npm run *)",
-      "Bash(git status)",
-      "Bash(git diff *)",
-      "Bash(git log *)"
-    ],
-    "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./**/*.pem)",
-      "Read(./**/*.key)",
-      "Read(./**/secrets/**)"
-    ]
-  },
   "enabledPlugins": {
     "next-task@agentsys": false,
     "ship@agentsys": true,
     "can-i-help@agentsys": true,
     "php-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
-    "enhance@agentsys": true
+    "enhance@agentsys": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "linkedin-mcp-server@linkedin-mcp-server": true
   },
   "extraKnownMarketplaces": {
     "agentsys": {
@@ -49,7 +54,49 @@
         "source": "github",
         "repo": "agent-sh/agentsys"
       }
+    },
+    "agricidaniel-claude-obsidian": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-obsidian"
+      }
+    },
+    "linkedin-mcp-server": {
+      "source": {
+        "source": "github",
+        "repo": "stickerdaniel/linkedin-mcp-server"
+      }
     }
   },
-  "tui": "fullscreen"
+  "tui": "fullscreen",
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Private — arnaud-lecat/obsidian (github.com:arnaud-lecat/obsidian.git), confirmed via gh",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: Default branch main on arnaud-lecat/obsidian; no classic branch protection listed, rulesets not queryable here — treat main as protected pending verification",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
+      "**Source control**: The trusted repo (arnaud-lecat/obsidian) and its configured remote(s) only — no additional orgs configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: entreprise.francetravail.fr and api.francetravail.io (job-search service hosts contacted during recent sessions) — contacted, not confirmed as trust-bearing beyond reachability",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: This vault (/home/alecat/kDrive/MyBrain) holds personal notes, freelance client/invoice data (micro-entreprise financials), home-works budgets, vehicle/insurance records, and job-search application data (CVs, interview notes) — personal and entrusted business data; share only with the user themselves",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries prod or production as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: Personal knowledge-management / Obsidian vault assistant (multi-agent dispatcher system) for this repo — routine under this repo's .claude/ prefix",
+      "**Trusted repo**: arnaud-lecat/obsidian (this repo's working directory and its origin remote), private",
+      "**Org-specific CLIs**: rtk (Rust Token Killer shell proxy, used transparently via hook per ~/.claude/CLAUDE.md); gws and hey (email/calendar CLIs referenced by the postman agent); just (task runner, per global prefs)",
+      "routine under .claude/agents/ and .claude/references/ prefix for vault-structure edits (per CLAUDE.md dispatcher design)"
+    ]
+  }
 }
