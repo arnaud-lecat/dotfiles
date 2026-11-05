@@ -4,6 +4,7 @@
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx PIP_REQUIRE_VIRTUALENV true # garde-fou pip (belt-and-suspenders, même si uv reste l'outil)
+set -gx QT_QPA_PLATFORM wayland
 
 set -gx PNPM_HOME $HOME/.local/share/pnpm
 if not string match -q -- "$PNPM_HOME/bin" $PATH
